@@ -1,0 +1,75 @@
+﻿<Window x:Class="SSOfflineEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SSOfflineEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Height="1050" VerticalAlignment="Top" Width="1591" Margin="319,0,0,-1">
+        <TabControl x:Name="tabControl" Height="692" Canvas.Left="-306" Canvas.Top="11" Width="283">
+            <TabItem Header="Sphere Properties">
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox x:Name="spherePropGroupBox" Header="Sphere Properties" Margin="0,0,-9,-10">
+                        <Grid HorizontalAlignment="Left" Height="621" Margin="0,10,-2,-12" VerticalAlignment="Top" Width="265">
+                            <Button x:Name="addSphereBtn" Content="Add Sphere" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="118" Height="33" Click="addSphereBtn_Click"/>
+                            <Button x:Name="deleteSphereBtn" Content="Delete Sphere" HorizontalAlignment="Left" Margin="134,10,0,0" VerticalAlignment="Top" Width="121" Height="33" Click="deleteSphereBtn_Click"/>
+                            <ListBox x:Name="sphereSelectionListBox" HorizontalAlignment="Left" Height="102" Margin="10,75,0,0" VerticalAlignment="Top" Width="245" SelectionChanged="listBox1_SelectedIndexChanged" Background="White"/>
+                            <Label x:Name="sphereNameLabel" Content="Sphere Name" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="sphereSelectionLabel" Content="Sphere Selection" Margin="10,49,157,546"/>
+                            <TextBox x:Name="sphereNameTxtBox" TextWrapping="Wrap" Margin="10,208,10,390" KeyDown="sphereNameTextBox_KeyDown"/>
+                            <ListBox x:Name="sphereParentListBox" Margin="10,263,123,278" SelectionChanged="sphereParentListBox_SelectedIndexChanged"/>
+                            <Label x:Name="sphereParentLabel" Content="Sphere Parent" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="rootSphereCheckBox" Content="Root Sphere" HorizontalAlignment="Left" Margin="158,263,0,0" VerticalAlignment="Top" Width="97" Click="rootSphereCheckBox_Click"/>
+                            <Label x:Name="sphereRadiusLabel" Content="Sphere Radius" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="sphereRadiusSlider" HorizontalAlignment="Left" Margin="10,379,0,0" VerticalAlignment="Top" Width="245" Maximum="150" Minimum="1"/>
+                            <Label x:Name="sphereRotSpeedLabel" Content="Sphere Rotation Speed" HorizontalAlignment="Left" Margin="10,402,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="sphereRotSpeedSlider" HorizontalAlignment="Left" Margin="10,433,0,0" VerticalAlignment="Top" Width="245" Maximum="100"/>
+                            <Label x:Name="sphereInitialColourLabel" Content="Sphere Initial Colour" HorizontalAlignment="Left" Margin="10,456,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="sphereColourRedSlider" HorizontalAlignment="Left" Margin="16,487,0,0" VerticalAlignment="Top" Width="245" Maximum="255"/>
+                            <Slider x:Name="sphereColourGreenSlider" HorizontalAlignment="Left" Margin="16,510,0,0" VerticalAlignment="Top" Width="245" Maximum="255"/>
+                            <Slider x:Name="sphereColourBlueSlider" HorizontalAlignment="Left" Margin="16,533,0,0" VerticalAlignment="Top" Width="245" Maximum="255"/>
+                            <Label x:Name="sphereInitColourRedLabel" Content="R" HorizontalAlignment="Left" Margin="-2,482,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="sphereInitColourGreenLabel" Content="G" HorizontalAlignment="Left" Margin="-3,505,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="sphereInitColourBlueLabel" Content="B" HorizontalAlignment="Left" Margin="-2,528,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="sphereInitialPositionLabel" Content="Sphere Initial Position" HorizontalAlignment="Left" Margin="10,556,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="sphereInitialPositionXLabel" Content="X" HorizontalAlignment="Left" Margin="10,582,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="spherePositionXTxtBox" TextWrapping="Wrap" Margin="32,582,137,16" KeyDown="spherePositionXTxtBox_KeyDown"/>
+                            <Label x:Name="sphereInitialPositionYLabel" Content="Y" HorizontalAlignment="Left" Margin="134,579,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="spherePositionYTxtBox" TextWrapping="Wrap" Margin="158,582,10,16" KeyDown="spherePositionYTxtBox_KeyDown"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Application Properties">
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox x:Name="appPropertiesGroupBox" Header="Application Properties" Margin="0,0,-3,321">
+                        <Grid HorizontalAlignment="Left" Height="297" Margin="0,10,-2,-12" VerticalAlignment="Top" Width="265">
+                            <Label x:Name="appOutputDirLabel" Content="Application Output Directory" Margin="10,0,85,271"/>
+                            <TextBox x:Name="appOutputDirTxtBox" TextWrapping="Wrap" Margin="10,26,10,248" KeyDown="appOutputDirTxtBox_KeyDown"/>
+                            <Label x:Name="appResolutionLabel" Content="Application Resolution" Margin="10,54,122,217"/>
+                            <Slider x:Name="appResolutionSlider" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="245" Maximum="2"/>
+                            <TextBox x:Name="appResolutionTxtBox" TextWrapping="Wrap" Margin="84,103,85,171"/>
+                            <Label x:Name="appFrameRateLabel" Content="Application Frame Rate" Margin="10,131,122,140"/>
+                            <Slider x:Name="appFrameRateSlider" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" Width="245" Maximum="60"/>
+                            <TextBox x:Name="appFrameRateTxtBox" TextWrapping="Wrap" Margin="84,180,85,94"/>
+                            <Label x:Name="appLengthLabel" Content="Application Length" Margin="10,208,122,63"/>
+                            <Slider x:Name="appLengthSlider" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="245" Maximum="20" Minimum="1"/>
+                            <TextBox x:Name="appLengthTxtBox" TextWrapping="Wrap" Margin="84,257,85,17"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="XML Import/Export Options" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="159" Margin="-2,-2,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox x:Name="impexpOptionsGroupBox" Header="XML Import/Export Options" Margin="0,0,54,530">
+                        <Grid HorizontalAlignment="Left" Height="88" Margin="0,10,-3,0" VerticalAlignment="Top" Width="214">
+                            <Button x:Name="importXMLBtn" Content="Import XML File" Margin="7,10,7,48" Click="importXMLBtn_Click"/>
+                            <Button x:Name="exportXMLBtn" Content="Export XML File" Margin="7,45,7,13" Click="exportXMLFileBtn_Click"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Canvas>
+</Window>
